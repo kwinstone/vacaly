@@ -21,7 +21,7 @@ export const LoginPage = () => {
       <Paper w={540} mx={"auto"} p={24} radius={"md"} shadow={"xs"}>
         <TitleIcon width={"150px"} height={"50px"} />
         <Text fw={500} size={"17px"} mt={6}>
-          Добро пожаловать в Vacaly!
+          Добро пожаловать в Vacaly
         </Text>
         <Text size={"14px"} fw={500} color={"gray.8"} mt={22} mb={8}>
           Заполните данные
