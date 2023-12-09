@@ -18,5 +18,8 @@ services:
     build:
       context: ./dashboard
       dockerfile: Dockerfile
+    volumes:
+      - /etc/ssl/vacaly.crt
+      - /etc/ssl/vacaly.key
     ports:
       - "80:80"
