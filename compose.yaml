@@ -21,11 +21,17 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
 
   certbot:
     image: certbot/certbot
-    container_name: certbot
+    command: certonly --webroot --webroot-path=/var/www/certbot --email yalikhan752@gmail.com --agree-tos --no-eff-email -d vacaly.kz
     volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    command: certonly --webroot -w /var/www/certbot --force-renewal --email yalikhan752@gmail.com -d vacaly.kz --agree-tos
+      - /etc/letsencrypt:/etc/letsencrypt
+      - certbot-nginx-www:/var/www/certbot
+    depends_on:
+      - frontend
+
+volumes:
+  certbot-nginx-www:
